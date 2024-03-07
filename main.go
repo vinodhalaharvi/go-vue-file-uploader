@@ -9,9 +9,6 @@ import (
 func main() {
 	r := gin.Default()
 
-	//r.LoadHTMLGlob("templates/*")
-
-	// home
 	// Serve static files from Vue.js 'dist' directory
 	r.Static("/", "./web/file-uploader/dist/")
 
@@ -25,9 +22,7 @@ func main() {
 			c.AbortWithStatus(204)
 			return
 		}
-
 		c.Next()
-
 	})
 
 	r.POST("/upload", func(c *gin.Context) {
