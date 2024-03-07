@@ -97,4 +97,6 @@ func (s *GinServer) Run() {
 func (s *GinServer) InstallRoutes() {
 	s.Router.GET("/api/ping", s.Ping)
 	s.Router.POST("/api/upload", s.Upload)
+	s.Router.DELETE("/api/delete/:filename", s.DeleteFile)
+	s.Router.GET("/api/files", s.GetFiles)
 }

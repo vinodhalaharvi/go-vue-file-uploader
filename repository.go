@@ -1,8 +1,8 @@
 package main
 
 type FileMetadata struct {
-	Name         string
-	AbsolutePath string
+	Name         string `json:"name" binding:"required"`
+	AbsolutePath string `json:"absolutePath" binding:"required"`
 }
 
 type FileRepository interface {
