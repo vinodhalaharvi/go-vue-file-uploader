@@ -7,9 +7,10 @@ import (
 )
 
 func main() {
-	server := GinServer{
-		Router: gin.Default(),
-	}
+	server := NewGinServer(
+		gin.Default(),
+		NewInMemoryFileRepository(),
+	)
 	server.InstallCORS()
 	server.InstallRoutes()
 	server.Router.Static("/web", "./web/file-uploader/dist/")
