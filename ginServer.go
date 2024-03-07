@@ -72,6 +72,8 @@ func (s *GinServer) Upload(c *gin.Context) {
 	if err != nil {
 		c.JSON(400, gin.H{"message": "Error uploading file"})
 	}
+	savePath := "static/" + file.Filename
+
 	// Save file metadata in the repository
 	err = s.InMemoryRepository.Save(FileMetadata{
 		Name:         file.Filename,
